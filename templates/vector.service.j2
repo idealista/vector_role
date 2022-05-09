@@ -8,9 +8,11 @@ After=network-online.target
 [Service]
 User={{ vector_user }}
 Group={{ vector_group }}
-
+ExecStartPre={{ vector_bin_path }}/{{ vector_exec_name }} validate
 ExecStart={{ vector_bin_path }}/{{ vector_exec_name }}
+ExecReload={{ vector_bin_path }}/{{ vector_exec_name }} validate
 ExecReload=/bin/kill -HUP $MAINPID
+EnvironmentFile=-{{ vector_env_path }}
 
 StandardOutput={{ vector_log_output }}
 StandardError={{ vector_log_output }}
