@@ -10,6 +10,7 @@
   user:
     name: "{{ vector_user }}"
     group: "{{ vector_group }}"
+    groups: "{{ vector_groups | default('') }}"
     system: yes
     shell: /usr/sbin/nologin
     createhome: no
