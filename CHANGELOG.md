@@ -8,6 +8,11 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 ### Added
 ### Removed
 ### Fixed
+## [1.1.1](https://github.com/idealista/vector_role/tree/1.1.0)(2022-05-09)
+### Fixed
+
+- Vector user allows several groups @santi-eidu
+- Idempotence test works @santi-eidu
 ## [1.1.0](https://github.com/idealista/vector_role/tree/1.1.0)(2022-05-09)
 ### Changed
 
