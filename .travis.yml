@@ -6,14 +6,15 @@ os: linux
 services:
   - docker
 install:
-  - pip install pipenv
+  - pip install -I pipenv
   - pipenv sync
 env:
   global:
     - PIPENV_IGNORE_VIRTUALENVS=1
   jobs:
-    - MOLECULE_DISTRO=debian:stretch-slim
+    - MOLECULE_DISTRO=debian:bullseye-slim
     - MOLECULE_DISTRO=debian:buster-slim
+    - MOLECULE_DISTRO=debian:stretch-slim
 script:
   - pipenv run molecule test
 
