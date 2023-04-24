@@ -1,5 +1,15 @@
 ---
 
+- name: VECTOR | Create templates config skeleton
+  file:
+    path: "{{ vector_config_path }}/{{ item.path }}"
+    state: directory
+    owner: "{{ vector_user }}"
+    group: "{{ vector_group }}"
+    mode: 0640
+  with_filetree: "{{ vector_config_template_path }}"
+  when: "item.state == 'directory'"
+
 - name: VECTOR | Configure vector
   template:
     src: "{{ vector_config_template_path }}"
@@ -8,3 +18,4 @@
     group: "{{ vector_group }}"
     mode: '0640'
   notify: restart vector
+  tags: [vector_configure]

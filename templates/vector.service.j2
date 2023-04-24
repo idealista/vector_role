@@ -1,4 +1,11 @@
 {{ ansible_managed | comment }}
+{%- if vector_config_files is defined -%}
+    {% set params_exec_start = '--config "' + vector_config_files | join('" --config "') + '"' %}
+    {% set params_exec_start_pre = '"' + vector_config_files | join('" "') + '"' %}
+{% elif vector_configs_folder is defined %}
+    {% set params_exec_start = '--config-dir "' + vector_configs_folder + '"' %}
+    {% set params_exec_start_pre = params_exec_start %}
+{% endif %}
 [Unit]
 Description=Vector
 Documentation={{ vector_documentation_link }}
@@ -8,9 +15,8 @@ After=network-online.target
 [Service]
 User={{ vector_user }}
 Group={{ vector_group }}
-ExecStartPre={{ vector_bin_path }}/{{ vector_exec_name }} validate
-ExecStart={{ vector_bin_path }}/{{ vector_exec_name }}
-ExecReload={{ vector_bin_path }}/{{ vector_exec_name }} validate
+ExecStartPre={{ vector_bin_path }} validate {{ params_exec_start_pre | default('') }}
+ExecStart={{ vector_bin_path }} {{ params_exec_start | default('') }}
 ExecReload=/bin/kill -HUP $MAINPID
 EnvironmentFile=-{{ vector_env_path }}
 
