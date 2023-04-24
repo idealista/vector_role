@@ -19,5 +19,5 @@
     mode: '0640'
   with_filetree: "{{ vector_config_template_path }}"
   when: "item.state == 'file'"
-  notify: restart vector
+  notify: Restart vector
   tags: [vector_configure]

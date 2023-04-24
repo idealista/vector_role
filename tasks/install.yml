@@ -21,6 +21,7 @@
     dest: "{{ item }}"
     owner: "{{ vector_user }}"
     group: "{{ vector_group }}"
+    mode: 0755
     state: directory
   with_items:
     - "{{ vector_skeleton_paths }}"
