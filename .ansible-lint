@@ -6,5 +6,6 @@ exclude_paths:
 parseable: true
 skip_list:
   - '204'
+  - fqcn[action-core]
 use_default_rules: true
 verbosity: 1
