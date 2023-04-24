@@ -15,5 +15,4 @@ galaxy_info:
     - name: Debian
       versions:
         - bullseye
-        - stretch
         - buster

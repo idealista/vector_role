@@ -14,7 +14,6 @@ env:
   jobs:
     - MOLECULE_DISTRO=debian:bullseye-slim
     - MOLECULE_DISTRO=debian:buster-slim
-    - MOLECULE_DISTRO=debian:stretch-slim
 script:
   - pipenv run molecule test
 
