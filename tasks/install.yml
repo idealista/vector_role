@@ -34,4 +34,4 @@
 - name: VECTOR | Download package
   apt:
     deb: "{{ vector_deb_package }}"
-  when: vector_force_reinstall or vector_check is failed or vector_version not in vector_check.stderr
+  when: vector_force_reinstall or vector_check is failed or vector_version not in vector_check.stdout

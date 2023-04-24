@@ -24,4 +24,4 @@ data_dir = "{{ vector_data_dir }}"
 [sinks.out]
   inputs   = ["in"]
   type     = "console"
-  encoding = "text"
+  encoding.codec = "text"
