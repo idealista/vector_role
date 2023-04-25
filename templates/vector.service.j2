@@ -1,11 +1,12 @@
 {{ ansible_managed | comment }}
-{%- if vector_config_files is defined -%}
+{% if vector_config_files is defined %}
     {% set params_exec_start = '--config "' + vector_config_files | join('" --config "') + '"' %}
     {% set params_exec_start_pre = '"' + vector_config_files | join('" "') + '"' %}
 {% elif vector_configs_folder is defined %}
     {% set params_exec_start = '--config-dir "' + vector_configs_folder + '"' %}
     {% set params_exec_start_pre = params_exec_start %}
 {% endif %}
+
 [Unit]
 Description=Vector
 Documentation={{ vector_documentation_link }}
