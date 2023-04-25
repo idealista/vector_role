@@ -10,7 +10,7 @@ platforms:
   - name: vector
     groups:
       - vector_group
-    image: "${MOLECULE_DISTRO:-debian:bullseye-slim}"
+    image: ${MOLECULE_DISTRO:-debian:bullseye-slim}
     privileged: false
     capabilities:
       - SYS_ADMIN
