@@ -21,8 +21,8 @@ ExecStart={{ vector_bin_path }} {{ params_exec_start | default('') }}
 ExecReload=/bin/kill -HUP $MAINPID
 EnvironmentFile=-{{ vector_env_path }}
 
-StandardOutput={{ vector_log_output }}
-StandardError={{ vector_log_output }}
+StandardOutput={{ vector_log_output_stdout | default(vector_log_output) }}
+StandardError={{ vector_log_output_stderr | default(vector_log_output) }}
 
 {% if vector_syslog_identifier is defined %}
 SyslogIdentifier={{ vector_syslog_identifier }}

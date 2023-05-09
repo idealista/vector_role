@@ -39,6 +39,8 @@ vector_service_state: started
 # If wanted to output the logs to a file define the following variable
 # More information at https://www.freedesktop.org/software/systemd/man/systemd.exec.html#StandardOutput=
 vector_log_output: journal
+# vector_log_output_stdout:
+# vector_log_output_stderr:
 
 vector_config_template_path: "templates/config/"
 vector_service_template_path: "vector.service.j2"
