@@ -1,7 +1,12 @@
+---
+
 exclude_paths:
   - ./molecule
+  - ./.github
 parseable: true
 skip_list:
   - '204'
+  - fqcn[action-core]
+  - schema[moves]
 use_default_rules: true
 verbosity: 1
