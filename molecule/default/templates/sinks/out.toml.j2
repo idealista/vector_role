@@ -11,17 +11,7 @@
 # Docs: https://vector.dev/docs/
 # ------------------------------------------------------------------------------
 
-# Note: A full config spec is located at ./vector.spec.toml and examples
-#       in the ./examples folder.
-
-data_dir = "{{ vector_data_dir }}"
-
-# Input data. Change me to a valid input source.
-[sources.in]
-  type = "stdin"
-
 # Output data
-[sinks.out]
-  inputs   = ["in"]
-  type     = "console"
-  encoding = "text"
+inputs   = ["in"]
+type     = "console"
+encoding.codec = "json"

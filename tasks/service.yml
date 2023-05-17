@@ -7,7 +7,7 @@
     mode: 0644
     owner: root
     group: root
-  notify: restart vector
+  notify: Restart vector
 
 - name: VECTOR | Configuring service
   systemd:

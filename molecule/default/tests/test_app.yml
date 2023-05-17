@@ -2,12 +2,8 @@
 
 file:
   {{ vector_bin_path }}:
-  
-    owner: {{ vector_user }}
-    group: {{ vector_group }}
-    
     exists: true
-    filetype: directory
+    filetype: file
 
 service:
   vector:
@@ -38,7 +34,7 @@ command:
 
   test:
     exit-status: 0
-    exec: "vector test /etc/vector/vector.toml"
+    exec: "vector test {{ vector_config_path }}/testvector.toml"
     stdout:
       - "passed"
     stderr: []
